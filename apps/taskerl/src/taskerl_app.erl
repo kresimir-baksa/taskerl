@@ -58,10 +58,11 @@ start(_StartType, _StartArgs) ->
                                 [{"/tasks/json", taskerl_route_handler, []},
                                  {"/tasks/shell", taskerl_route_handler, []}]}]),
     persistent_term:put(taskerl_routes, Routes),
+    Host = application:get_env(taskerl, http_host, {127, 0, 0, 1}),
     Port = application:get_env(taskerl, http_port, 8080),
     {ok, _Pid} =
         cowboy:start_clear(taskerl_http_listener,
-                           [{port, Port}],
+                           [{ip, Host}, {port, Port}],
                            #{env => #{dispatch => {persistent_term, taskerl_routes}}}),
     {ok, _} = taskerl_sup:start_link().
 

@@ -60,6 +60,7 @@ The service can be configured via `config/sys.config`:
 ```erlang
 [
     {taskerl, [
+        {http_host, {127, 0, 0, 1}},  % Service IP address
         {http_port, 8080}  % Port to listen on
     ]}
 ].

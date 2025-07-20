@@ -15,7 +15,6 @@ stop:
 	@_build/default/rel/$(APP_NAME)/bin/$(APP_NAME) stop
 
 test:
-	make init
 	@$(REBAR3) test
 
 clean:
