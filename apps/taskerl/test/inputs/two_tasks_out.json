@@ -1,0 +1,12 @@
+{
+    "tasks": [
+        {
+            "name": "task-1",
+            "command": "touch /tmp/file1"
+        },
+        {
+            "name": "task-2",
+            "command": "echo 'Hello' > /tmp/file1"
+        }
+    ]
+}
